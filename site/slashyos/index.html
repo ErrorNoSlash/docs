@@ -1,0 +1,1303 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A new project generated from the default template project.">
+      
+      
+        <meta name="author" content="<your name here>">
+      
+      
+      
+        <link rel="prev" href="./..">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.51">
+    
+    
+      
+        <title>SlashyOS - Documentation</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.62c9b9cc.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#slashyos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SlashyOS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Welcome
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SlashyOS
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SlashyOS
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#flake-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Flake structure
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Module layers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tags
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Hosts
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-host-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Per-host variables
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desktop-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desktop environment
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desktop environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#niri" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        niri
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noctalia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Noctalia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#theming-stylix" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Theming (Stylix)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Boot &amp; security
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Shell &amp; CLI
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dev-shells" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dev shells
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Maintenance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Applications
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wallpapers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Wallpapers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Usage
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs-credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Inputs &amp; credits
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#flake-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Flake structure
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Module layers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tags
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Hosts
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-host-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Per-host variables
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desktop-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desktop environment
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desktop environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#niri" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        niri
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noctalia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Noctalia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#theming-stylix" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Theming (Stylix)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Boot &amp; security
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Shell &amp; CLI
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dev-shells" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dev shells
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Maintenance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Applications
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wallpapers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Wallpapers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Usage
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs-credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Inputs &amp; credits
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="slashyos">SlashyOS<a class="headerlink" href="#slashyos" title="Permanent link">&para;</a></h1>
+<p>A personal, <strong>multi-host</strong> NixOS configuration spanning an AMD desktop and a Framework laptop. It's built with <a href="https://flake.parts/"><code>flake-parts</code></a> and <a href="https://github.com/vic/import-tree"><code>import-tree</code></a>, so every <code>.nix</code> file under <code>modules/</code> is auto-imported — no manual wiring, just drop a file in and it's part of the flake.</p>
+<p>Both machines run <a href="https://github.com/YaLTeR/niri"><strong>niri</strong></a> (a scrollable-tiling Wayland compositor) with the <a href="https://github.com/noctalia-dev/noctalia-shell"><strong>Noctalia</strong></a> shell, both wrapped declaratively via <a href="https://github.com/BirdeeHub/nix-wrapper-modules"><code>nix-wrapper-modules</code></a> instead of imperative dotfiles, and are themed system-wide by <a href="https://github.com/nix-community/stylix"><strong>Stylix</strong></a> — from the boot splash to the TTY to every app.</p>
+<p>Shared configuration is written <strong>once</strong>: a <code>slashyos</code> base bundle pulls in everything common (system <em>and</em> home-manager level), and each host adds only its hardware, bootloader, and a handful of per-host values. Adding an app to both machines is a one-line change.</p>
+<div class="admonition info">
+<p class="admonition-title">Repository</p>
+<p>Source lives at <a href="../REPO_URL">REPO_URL</a> · NixOS 26.05 · 2 hosts</p>
+</div>
+<h2 id="flake-structure">Flake structure<a class="headerlink" href="#flake-structure" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SlashyOS/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── flake.nix                     # inputs + flake-parts entrypoint
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── modules/
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   ├── parts.nix                 # systems, `flake.variables` option, nix fmt formatter
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   ├── devshells/
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   │   └── devshells.nix         # `devShells` outputs (python, frontendServer)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   ├── features/                 # reusable modules, grouped by concern
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   │   ├── appearance/           # stylix, sddm, plymouth, fastfetch
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   │   ├── desktop/              # niri, noctalia (+ noctalia.json)
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   │   ├── system/               # base bundle, common, common-home, shell, nvf, yazi, ntfy, virtualisation
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   │   ├── pallidus/             # host-exclusive: lanzaboote, sunshine
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│   │   └── theseus/              # host-exclusive: grub
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   └── hosts/
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│       ├── pallidus/             # 🖥️ AMD desktop
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│       │   ├── default.nix       # nixosSystem definition
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│       │   ├── pallidus.nix      # host config: imports + hostname + bootloader
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│       │   ├── hardware.nix      # generated hardware scan
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│       │   ├── desktop-hardware.nix
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│       │   ├── home.nix          # host-only home-manager extras
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>│       │   └── variables.nix     # this host&#39;s values
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>│       └── theseus/              # 💻 Framework AMD laptop
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>│           ├── default.nix
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>│           ├── theseus.nix
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>│           ├── hardware.nix
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>│           ├── laptop-hardware.nix
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>│           ├── home.nix
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>│           └── variables.nix
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>└── config/
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    ├── Wallpapers/               # wallpaper collection (+ greyscale/)
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    └── fastfetch/image/          # fastfetch logos
+</span></code></pre></div>
+<p>Anything under <code>modules/</code> is auto-imported regardless of subfolder — the folders are purely for humans. A module only becomes active on a host when that host's config imports it by name.</p>
+<h2 id="module-layers">Module layers<a class="headerlink" href="#module-layers" title="Permanent link">&para;</a></h2>
+<p>Deduplication works in three layers:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Module</th>
+<th>Contains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Base bundle</strong></td>
+<td><code>slashyos</code> (<code>features/system/default.nix</code>)</td>
+<td>Imports everything every machine gets: <code>common</code>, <code>commonHome</code>, niri, sddm, stylix, shell, fastfetch, plymouth, ntfy, nvf, yazi, virtualisation</td>
+</tr>
+<tr>
+<td><strong>Shared system</strong></td>
+<td><code>common</code></td>
+<td>NixOS-level config both hosts share: nix settings, locale, pipewire, portals, Steam, users, firewall, …</td>
+</tr>
+<tr>
+<td><strong>Shared home</strong></td>
+<td><code>commonHome</code></td>
+<td>Home-manager config both hosts share: user dirs, packages, kitty, VSCodium, git, btop, mangohud</td>
+</tr>
+</tbody>
+</table>
+<p>A host file then reads as <em>"the OS, plus this hardware, plus this bootloader"</em>:</p>
+<div class="language-nix highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># modules/hosts/theseus/theseus.nix</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="ss">imports</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  self<span class="o">.</span>nixosModules<span class="o">.</span>slashyos
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  self<span class="o">.</span>nixosModules<span class="o">.</span>theseusHome
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  self<span class="o">.</span>nixosModules<span class="o">.</span>theseusHardware
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  self<span class="o">.</span>nixosModules<span class="o">.</span>laptopHardware
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  self<span class="o">.</span>nixosModules<span class="o">.</span>grub
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">];</span>
+</span></code></pre></div>
+<p><strong>Where does a change go?</strong></p>
+<ul>
+<li>App / setting for <strong>both machines</strong> → <code>common.nix</code> (system) or <code>common-home.nix</code> (user)</li>
+<li>App for <strong>one machine</strong> → that host's <code>home.nix</code></li>
+<li>New feature for both → new file under <code>features/</code>, add one line to the <code>slashyos</code> bundle</li>
+<li>New machine → copy the closest host folder (~5 short files) — see <a href="#usage">Usage</a></li>
+</ul>
+<h2 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Tag</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">🟢</td>
+<td>Enabled / active</td>
+</tr>
+<tr>
+<td style="text-align: center;">🛠️</td>
+<td>Declaratively wrapped via <code>nix-wrapper-modules</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">🔐</td>
+<td>Security-related (Secure Boot, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: center;">🖥️</td>
+<td>Desktop-only (<code>pallidus</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;">💻</td>
+<td>Laptop-only (<code>theseus</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hosts">Hosts<a class="headerlink" href="#hosts" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Host</th>
+<th style="text-align: center;">Platform</th>
+<th>Machine</th>
+<th>Bootloader</th>
+<th style="text-align: center;">Keyboard</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pallidus</code></td>
+<td style="text-align: center;"><code>x86_64-linux</code></td>
+<td>🖥️ AMD desktop</td>
+<td><code>systemd-boot</code> + 🔐 Lanzaboote</td>
+<td style="text-align: center;"><code>gb,fr</code></td>
+<td>Dual-boots Windows 11</td>
+</tr>
+<tr>
+<td><code>theseus</code></td>
+<td style="text-align: center;"><code>x86_64-linux</code></td>
+<td>💻 Framework AMD (AI 300)</td>
+<td>GRUB</td>
+<td style="text-align: center;"><code>us,fr</code></td>
+<td>Tuned via <code>nixos-hardware</code>, zram, power-profiles-daemon</td>
+</tr>
+</tbody>
+</table>
+<p>Each host is a separate entry in <code>flake.nixosConfigurations</code>. You build the one matching the machine — see <a href="#usage">Usage</a>.</p>
+<h2 id="per-host-variables">Per-host variables<a class="headerlink" href="#per-host-variables" title="Permanent link">&para;</a></h2>
+<p>Values that differ between machines (hostname, wallpaper, login background, fastfetch logo, username, keyboard layout) live in each host's <code>variables.nix</code> under <code>flake.variables.&lt;host&gt;</code>:</p>
+<div class="language-nix highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># modules/hosts/theseus/variables.nix</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>flake<span class="o">.</span>variables<span class="o">.</span><span class="ss">theseus</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  <span class="ss">username</span> <span class="o">=</span> <span class="s2">&quot;dias&quot;</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  <span class="ss">hostname</span> <span class="o">=</span> <span class="s2">&quot;theseus&quot;</span><span class="p">;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  <span class="ss">kbLayout</span> <span class="o">=</span> <span class="s2">&quot;us,fr&quot;</span><span class="p">;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  <span class="ss">wallpaper</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">${</span>self<span class="si">}</span><span class="s2">/config/Wallpapers/japan.png&quot;</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  <span class="c1"># ...</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">};</span>
+</span></code></pre></div>
+<p>The <code>flake.variables</code> output is declared as an option in <code>parts.nix</code>, which is what lets each host contribute its own set without collisions. Shared modules that need a host-specific value look it up by the machine's hostname:</p>
+<div class="language-nix highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ss">image</span> <span class="o">=</span> self<span class="o">.</span>variables<span class="o">.</span><span class="si">${</span>config<span class="o">.</span>networking<span class="o">.</span>hostName<span class="si">}</span><span class="o">.</span>wallpaper<span class="p">;</span>
+</span></code></pre></div>
+<p>So a single <code>stylix.nix</code> themes both hosts, each with its own wallpaper. To add a value, add the key to every host's <code>variables.nix</code>.</p>
+<h2 id="desktop-environment">Desktop environment<a class="headerlink" href="#desktop-environment" title="Permanent link">&para;</a></h2>
+<h3 id="niri">niri<a class="headerlink" href="#niri" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🟢🛠️ Scrollable-tiling Wayland compositor, wrapped declaratively (<code>programs.niri</code> + <code>wrapper-modules</code>).</li>
+<li><code>phinger-cursors-dark</code> cursor theme, size 32, throughout the stack.</li>
+<li>Rounded window corners (12px), blur, 8px gaps, focus ring in Stylix accent colors.</li>
+<li>Keyboard layout is per-host, <span class="keys"><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd></span> to toggle.</li>
+<li>💻 The Framework's built-in panel (<code>eDP-1</code>) runs at fractional scale <code>1.2</code>; Electron apps go native Wayland (<code>NIXOS_OZONE_WL</code>) so they stay crisp, and Steam's UI is scaled to match.</li>
+</ul>
+<p><strong>Keybinds</strong> <em>(shared across hosts; <code>Mod</code> = <span class="keys"><kbd class="key-super">Super</kbd></span>)</em></p>
+<table>
+<thead>
+<tr>
+<th>Bind</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-enter">Enter</kbd></span></td>
+<td>Toggle Noctalia launcher</td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-enter">Enter</kbd></span></td>
+<td>Open <code>kitty</code></td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-d">D</kbd></span></td>
+<td>Open <code>vesktop</code> (Discord)</td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-t">T</kbd></span></td>
+<td>Open <code>thunar</code></td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-w">W</kbd></span></td>
+<td>Open <code>brave</code></td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-b">B</kbd></span></td>
+<td>Open <code>emote</code> (emoji picker)</td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span> / <span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-s">S</kbd></span></td>
+<td>Screenshot full / region → clipboard</td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-q">Q</kbd></span></td>
+<td>Close window</td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-e">E</kbd></span></td>
+<td>Quit niri</td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-escape">Esc</kbd></span></td>
+<td>Show hotkey overlay</td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-tab">Tab</kbd></span></td>
+<td>Toggle overview</td>
+</tr>
+</tbody>
+</table>
+<h3 id="noctalia">Noctalia<a class="headerlink" href="#noctalia" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🟢🛠️ Shell / bar / launcher for niri, wrapped as a package and toggled via niri keybinds (launcher, settings, wallpaper, session menu). Themed via <code>noctalia.json</code>.</li>
+</ul>
+<h3 id="theming-stylix">Theming (Stylix)<a class="headerlink" href="#theming-stylix" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🟢 <a href="https://github.com/nix-community/stylix"><strong>Stylix</strong></a> drives system-wide theming — colors, fonts, and icons — from each host's wallpaper (<code>polarity = "dark"</code>).</li>
+<li>Covers <strong>everything</strong>: apps, <code>btop</code>, the Plymouth boot splash, and the TTY console, so the whole boot-to-desktop journey shares one palette per host.</li>
+<li>Papirus icon theme (dark), 80% terminal/application opacity.</li>
+</ul>
+<h2 id="boot-security">Boot &amp; security<a class="headerlink" href="#boot-security" title="Permanent link">&para;</a></h2>
+<p><strong>Shared</strong></p>
+<ul>
+<li>🟢 <strong>Plymouth</strong> — Stylix-generated boot splash (wallpaper-derived background, logo, spinner) with silent boot: quiet kernel params, hidden initrd logs.</li>
+<li>🟢 <strong>SDDM</strong> — Wayland session via the <code>kwin</code> compositor, <code>sddm-astronaut-theme</code> (left-aligned form, per-host greyscale background, <code>Electroharmonix</code> font).</li>
+</ul>
+<p><strong>pallidus</strong> 🖥️</p>
+<ul>
+<li>🟢🔐 <a href="https://github.com/nix-community/lanzaboote"><strong>Lanzaboote</strong></a> — Secure Boot with a signed kernel/bootloader; <code>sbctl</code> included for key management (keys live on the machine, not in the repo).</li>
+<li><code>systemd-boot</code>, 5 generations kept, EFI variables writable, dedicated Windows 11 boot entry.</li>
+</ul>
+<p><strong>theseus</strong> 💻</p>
+<ul>
+<li>🟢 <strong>GRUB</strong> (EFI, <code>device = nodev</code>) with the <code>grub-of-tsushima</code> theme; Stylix's GRUB target disabled so the theme applies.</li>
+</ul>
+<h2 id="shell-cli">Shell &amp; CLI<a class="headerlink" href="#shell-cli" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>fish</strong> — default shell, fastfetch greeting.</li>
+<li><strong>starship</strong> — prompt, with username/hostname disabled.</li>
+<li><strong><a href="https://github.com/nix-community/nh">nh</a></strong> — pretty <code>nixos-rebuild</code> wrapper, pointed at the repo, with weekly auto-clean (see <a href="#maintenance">Maintenance</a>).</li>
+<li><strong>direnv + nix-direnv</strong> — per-project <a href="#dev-shells">dev shells</a> that auto-activate on <code>cd</code>.</li>
+<li><strong><a href="https://github.com/nix-community/comma">comma</a></strong> — <code>, anything</code> runs a nixpkgs program without installing it.</li>
+<li><strong>fastfetch</strong> — custom system-info fetch with a per-host logo (<code>kitty-direct</code>).</li>
+<li><strong>nvf</strong> — declaratively configured Neovim. <strong>yazi</strong> — terminal file manager.</li>
+<li><strong>ntfy</strong> — a user service subscribes to <a href="https://ntfy.sh">ntfy</a> and relays to desktop notifications (reads <code>~/.config/ntfy/client.yml</code>, deliberately unmanaged so credentials stay out of the repo).</li>
+</ul>
+<p><strong>Aliases</strong></p>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Expands to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fr</code></td>
+<td><code>nh os switch</code></td>
+</tr>
+<tr>
+<td><code>fu</code></td>
+<td><code>nix flake update</code> (on this flake)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Formatting</strong> — the flake exposes <code>nixfmt-tree</code> as its formatter; <code>nix fmt</code> from the repo root formats the whole tree.</p>
+<h2 id="dev-shells">Dev shells<a class="headerlink" href="#dev-shells" title="Permanent link">&para;</a></h2>
+<p>Defined in <code>modules/devshells/devshells.nix</code> as flake outputs, pinned to the same <code>nixpkgs</code> as the system:</p>
+<table>
+<thead>
+<tr>
+<th>Shell</th>
+<th>Provides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>python</code></td>
+<td>Python 3 with numpy, pandas, matplotlib, pillow, jupyter, pytest, pip/setuptools/wheel</td>
+</tr>
+<tr>
+<td><code>frontendServer</code></td>
+<td>Node.js 24</td>
+</tr>
+</tbody>
+</table>
+<div class="language-fish highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c"># one-off</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>nix develop ~/SlashyOS#python
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c"># per project — auto-activates on cd, and creates a GC root</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">echo</span> <span class="s2">&quot;use flake ~/SlashyOS#python&quot;</span> <span class="o">&gt;</span> .envrc <span class="o">&amp;&amp;</span> direnv allow
+</span></code></pre></div>
+<h2 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">&para;</a></h2>
+<p>Garbage collection is automated <strong>without ever nuking dev shells</strong>:</p>
+<ul>
+<li><code>nh clean</code> runs <strong>weekly</strong>: keeps the last 5 generations and anything newer than 3 days, and runs with <code>--no-gcroots</code> so direnv's dev-shell roots are never removed.</li>
+<li><code>nix.settings</code> sets <code>keep-outputs</code> + <code>keep-derivations</code>, so build-time dependencies of rooted shells survive GC — nothing gets re-downloaded after a clean.</li>
+<li><code>auto-optimise-store</code> hardlinks duplicate store files to claw disk back.</li>
+<li>The <a href="https://nix-community.cachix.org">nix-community cache</a> is added as an extra substituter (covers lanzaboote and friends).</li>
+</ul>
+<h2 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link">&para;</a></h2>
+<p>Shared apps live in <code>commonHome</code>; host-only extras in that host's <code>home.nix</code> (pallidus adds <code>r2modman</code> and <code>pandora-launcher</code>).</p>
+<table>
+<thead>
+<tr>
+<th>App</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://brave.com/">Brave</a></td>
+<td>Browser</td>
+</tr>
+<tr>
+<td><a href="https://docs.xfce.org/xfce/thunar/start">Thunar</a></td>
+<td>File manager</td>
+</tr>
+<tr>
+<td><a href="https://vscodium.com/">VSCodium</a></td>
+<td>Code editor (curated extension set)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Vencord/Vesktop">Vesktop</a></td>
+<td>Discord client</td>
+</tr>
+<tr>
+<td><a href="https://element.io/">Element</a></td>
+<td>Matrix client</td>
+</tr>
+<tr>
+<td><a href="https://proton.me/pass">Proton Pass</a></td>
+<td>Password manager</td>
+</tr>
+<tr>
+<td><a href="https://proton.me/mail">Proton Mail</a></td>
+<td>Email client</td>
+</tr>
+<tr>
+<td><a href="https://wooting.io/wootility">Wootility</a></td>
+<td>Wooting keyboard configurator</td>
+</tr>
+<tr>
+<td><a href="https://sw.kovidgoyal.net/kitty/">kitty</a></td>
+<td>Terminal (custom config, fade tab bar)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tom-james-watson/Emote">Emote</a></td>
+<td>Emoji picker (<span class="keys"><kbd class="key-super">Super</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-b">B</kbd></span>)</td>
+</tr>
+<tr>
+<td><a href="https://www.videolan.org/">VLC</a> · <a href="https://sr.ht/~exec64/imv/">imv</a></td>
+<td>Media / image viewing</td>
+</tr>
+<tr>
+<td><a href="https://localsend.org/">LocalSend</a></td>
+<td>LAN file sharing (firewall ports opened)</td>
+</tr>
+</tbody>
+</table>
+<p>Plus: <code>btop</code> (Stylix-themed via home-manager), <code>micro</code>, <code>git</code>, Steam (Gamescope session, Proton-GE, GameMode), MangoHud.</p>
+<h2 id="wallpapers">Wallpapers<a class="headerlink" href="#wallpapers" title="Permanent link">&para;</a></h2>
+<p>The wallpaper collection lives in <code>config/Wallpapers/</code>, including a <code>greyscale/</code> subset — one of which (<code>ship-greyscale.jpg</code>) is used as the SDDM login background. Each host picks its own desktop wallpaper in its <code>variables.nix</code>, and Stylix derives the whole color scheme from it — desktop, apps, boot splash, and console alike.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>Each machine builds its own host. From the repo root:</p>
+<div class="language-fish highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c"># On the machine itself — hostname is inferred:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>fr                    <span class="c"># == nh os switch  (builds the host matching this machine)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c"># Or be explicit about which host:</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>sudo nixos-rebuild <span class="k">switch</span> --flake .#pallidus
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>sudo nixos-rebuild <span class="k">switch</span> --flake .#theseus
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c"># Update flake inputs:</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>fu                    <span class="c"># == nix flake update (on this flake)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c"># Format the tree:</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>nix fmt
+</span></code></pre></div>
+<p><strong>Build without switching</strong> (safe eval/compile check, e.g. testing the laptop's config from the desktop):</p>
+<div class="language-fish highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nixos-rebuild build --flake .#theseus     <span class="c"># drops ./result, changes nothing</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Adding a new host</p>
+<p>To add a machine (e.g. <code>orion</code>): copy the closest existing host folder (<code>pallidus</code> for a desktop, <code>theseus</code> for a laptop), rename its per-host module attributes (<code>&lt;old&gt;Configuration/Home/Hardware</code> → <code>&lt;new&gt;…</code>), set <code>flake.variables.&lt;new&gt;</code>, drop in the machine's real <code>hardware.nix</code>, <code>git add</code> the new files, then <code>sudo nixos-rebuild switch --flake .#&lt;new&gt;</code> on that machine. Thanks to the <code>slashyos</code> bundle, the new host file is ~20 lines.</p>
+</div>
+<h2 id="inputs-credits">Inputs &amp; credits<a class="headerlink" href="#inputs-credits" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/nixos/nixpkgs">nixpkgs</a> (<code>nixos-26.05</code>)</td>
+<td>Package set</td>
+</tr>
+<tr>
+<td><a href="https://github.com/hercules-ci/flake-parts">flake-parts</a></td>
+<td>Modular flake composition</td>
+</tr>
+<tr>
+<td><a href="https://github.com/vic/import-tree">import-tree</a></td>
+<td>Auto-import of <code>modules/</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/BirdeeHub/nix-wrapper-modules">nix-wrapper-modules</a></td>
+<td>Declarative niri &amp; Noctalia wrapping</td>
+</tr>
+<tr>
+<td><a href="https://github.com/NixOS/nixos-hardware">nixos-hardware</a></td>
+<td>Framework laptop tuning (<code>theseus</code>)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/nix-community/lanzaboote">lanzaboote</a></td>
+<td>Secure Boot (<code>pallidus</code>)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/nix-community/stylix">stylix</a> (<code>release-26.05</code>)</td>
+<td>System-wide theming</td>
+</tr>
+<tr>
+<td><a href="https://github.com/nix-community/home-manager">home-manager</a> (<code>release-26.05</code>)</td>
+<td>User-level config</td>
+</tr>
+<tr>
+<td><a href="https://github.com/notashelf/nvf">nvf</a></td>
+<td>Declarative Neovim</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="./.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Welcome
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The authors
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7f30b55.min.js"></script>
+      
+    
+  </body>
+</html>
