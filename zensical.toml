@@ -1,32 +1,17 @@
-# ============================================================================
-#
-# The configuration produced by default is meant to highlight the features
-# that Zensical provides and to serve as a starting point for your own
-# projects.
-#
-# ============================================================================
-
 [project]
 
 # The site_name is shown in the page header and the browser window title
-#
-# Read more: https://zensical.org/docs/setup/basics/#site_name
-site_name = "Docs"
+site_name = "Documentation"
 
 # The site_description is included in the HTML head and should contain a
-# meaningful description of the site content for use by search engines.
-#
-# Read more: https://zensical.org/docs/setup/basics/#site_description
-site_description = "A new project generated from the default template project."
+site_description = "This is my docs site new projects documentaton will be available here."
 
 # The site_author attribute. This is used in the HTML head element.
-#
-# Read more: https://zensical.org/docs/setup/basics/#site_author
 site_author = "Dias Stas"
 
 # The site_url is the canonical URL for your site. When building online
 # documentation you should set this.
-# Read more: https://zensical.org/docs/setup/basics/#site_url
+#Read more: https://zensical.org/docs/setup/basics/#site_url
 #site_url = "https://www.example.com/"
 
 # The copyright notice appears in the page footer and can contain an HTML
@@ -37,26 +22,13 @@ copyright = """
 Copyright &copy; 2026 Dias Stas
 """
 
-# Zensical supports both implicit navigation and explicitly defined navigation.
-# If you decide not to define a navigation here then Zensical will simply
-# derive the navigation structure from the directory structure of your
-# "docs_dir". The definition below demonstrates how a navigation structure
-# can be defined using TOML syntax.
-#
-# Read more: https://zensical.org/docs/setup/navigation/
-# nav = [
-#   { "Get started" = "index.md" },
-#   { "Markdown in 5min" = "markdown.md" },
-# ]
+# site navigation
+nav = [
+  { "Welcome" = "index.md" },
+  { "SlashyOS" = "slashyos.md" },
+]
 
-# With the "extra_css" option you can add your own CSS styling to customize
-# your Zensical project according to your needs. You can add any number of
-# CSS files.
-#
-# The path provided should be relative to the "docs_dir".
-#
-# Read more: https://zensical.org/docs/customization/#additional-css
-#
+# sets extra css for customization
 #extra_css = ["stylesheets/extra.css"]
 
 # With the `extra_javascript` option you can add your own JavaScript to your
@@ -85,29 +57,10 @@ Copyright &copy; 2026 Dias Stas
 #
 #custom_dir = "overrides"
 
-# With the "favicon" option you can set your own image to use as the icon
-# browsers will use in the browser title bar or tab bar. The path provided
-# must be relative to the "docs_dir".
-#
-# Read more:
-# - https://zensical.org/docs/setup/logo-and-icons/#favicon
-# - https://developer.mozilla.org/en-US/docs/Glossary/Favicon
-#
+# site favicon
 favicon = "assets/favicon.png"
 
-# Zensical supports more than 60 different languages. This means that the
-# labels and tooltips that Zensical's templates produce are translated.
-# The "language" option allows you to set the language used. This language
-# is also indicated in the HTML head element to help with accessibility
-# and guide search engines and translation tools.
-#
-# The default language is "en" (English). It is possible to create
-# sites with multiple languages and configure a language selector. See
-# the documentation for details.
-#
-# Read more:
-# - https://zensical.org/docs/setup/language/
-#
+# site lamguage
 language = "en"
 
 # Zensical provides a number of feature toggles that change the behavior
@@ -249,31 +202,13 @@ features = [
     #"toc.integrate",
 ]
 
-# ----------------------------------------------------------------------------
-# You can configure your own logo to be shown in the header using the "logo"
-# option in the "theme" subsection. The logo must be a relative path to a file
-# in your "docs_dir", e.g., to use `docs/assets/logo.png` you would set:
-# ----------------------------------------------------------------------------
+# sets site logo
 logo = "assets/homelab-logo.png"
 
-# ----------------------------------------------------------------------------
-# If you don't have a dedicated project logo, you can use a built-in icon from
-# the icon sets shipped in Zensical. Please note that the setting lives in a
-# different subsection, and that the above take precedence over the icon.
-#
-# Read more:
-# - https://zensical.org/docs/setup/logo-and-icons
-# - https://github.com/zensical/ui/tree/master/dist/.icons
-# ----------------------------------------------------------------------------
 #[project.theme.icon]
 #logo = "lucide/smile"
 
-# ----------------------------------------------------------------------------
-# In the "font" subsection you can configure the fonts used. By default, fonts
-# are loaded from Google Fonts, giving you a wide range of choices from a set
-# of suitably licensed fonts. There are options for a normal text font and for
-# a monospaced font used in code blocks.
-# ----------------------------------------------------------------------------
+# Fonts used by site
 [project.theme.font]
 text = "Outfit"
 code = "JetBrains Mono"
