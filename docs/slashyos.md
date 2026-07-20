@@ -7,7 +7,7 @@ Both machines run [**niri**](https://github.com/YaLTeR/niri) (a scrollable-tilin
 Shared configuration is written **once**: a `slashyos` base bundle pulls in everything common (system *and* home-manager level), and each host adds only its hardware, bootloader, and a handful of per-host values. Adding an app to both machines is a one-line change.
 
 !!! info "Repository"
-    Source lives at [REPO_URL](REPO_URL) · NixOS 26.05 · 2 hosts
+    Source lives at [Gitlab](https://gitlab.com/nixos-projects/slashyos) · NixOS 26.05 · 2 hosts
 
 ## Flake structure
 
