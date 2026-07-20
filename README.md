@@ -25,20 +25,6 @@ More sections land here as projects mature.
 - **GitHub Actions** → **GitHub Pages** — every push to `main` rebuilds and deploys automatically
 - **Cloudflare DNS** — `docs.errornoslash.be` → GitHub Pages
 
-## Working locally
-
-Content is markdown in [`docs/`](docs/), configuration in [`zensical.toml`](zensical.toml).
-
-```fish
-# dev shell (uv + python) comes from my SlashyOS flake
-nix develop ~/SlashyOS#docs
-
-# live preview at http://localhost:8000
-uvx zensical serve
-```
-
-Edit, check the preview, commit, push — the site updates itself.
-
 ## Structure
 
 ```
