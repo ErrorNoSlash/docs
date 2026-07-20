@@ -22,4 +22,4 @@ It's early days. As projects mature, their documentation lands here as its own s
 
 ## About this site
 
-Built with [Zensical](https://zensical.org) and deployed to GitHub Pages via GitHub Actions. The site itself is a project too — its source lives in the [docs repository](https://github.com/YOURNAME/docs).
+Built with [Zensical](https://zensical.org) and deployed to GitHub Pages via GitHub Actions. The site itself is a project too — its source lives in the [docs repository](https://github.com/errornoslash/docs).
