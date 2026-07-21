@@ -1,0 +1,13 @@
+media:
+  input: docs/assets
+  output: assets
+
+content:
+  - name: docs
+    label: Documentation
+    type: collection
+    path: docs
+    fields:
+      - name: body
+        label: Content
+        type: rich-text
