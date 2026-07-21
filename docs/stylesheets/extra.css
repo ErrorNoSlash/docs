@@ -1,13 +1,26 @@
 /* match errornoslash portfolio/blog palette */
-:root > * {
-    /* accent drives the active nav item, links, and hover states */
-    --md-accent-fg-color: #e3e3e3;
-    --md-typeset-a-color: #AEB5B8;
-    --md-primary-fg-color: #AEB5B8;
+
+/* palette vars: must beat [data-md-color-scheme][data-md-color-primary] (0,2,0),
+   hence the leading body prefix -> (0,2,1) */
+body[data-md-color-scheme="slate"][data-md-color-primary="black"] {
+    /* links */
+    --md-typeset-a-color: #5e8bde;
+    /* hover / focus */
+    --md-accent-fg-color: #8fb0ea;
+    --md-accent-fg-color--transparent: #e3e3e31a;
+    --md-typeset-mark-color: #aeb5b84d;
 }
 
-/* active sidebar item: grey-on-dark instead of blue */
-.md-nav__link--active,
-.md-nav__link--active:hover {
+/* active item in the left sidebar: solid pill, dark text.
+   the theme rule is already (0,3,0), so the leading body prefix -> (0,3,1) */
+body .md-nav--primary .md-nav__item .md-nav__link--active {
+    background-color: #AEB5B8;
+    color: #131313;
+}
+
+/* active item in the right-hand table of contents: text only */
+body .md-nav--secondary .md-nav__item .md-nav__link--active {
     color: #e3e3e3;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
 }
