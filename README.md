@@ -1,8 +1,8 @@
 <div align="center">
 
-# 📚 docs
+<img src="docs/assets/banner.svg" alt="docs" width="100%">
 
-**Personal documentation hub** — live at **[docs.errornoslash.be](https://docs.errornoslash.be)**
+Live at **[docs.errornoslash.be](https://docs.errornoslash.be)**
 
 Project write-ups that outgrow their READMEs end up here.
 
@@ -33,5 +33,5 @@ More sections land here as projects mature.
 └── docs/
     ├── index.md               # welcome page
     ├── slashyos.md            # SlashyOS documentation
-    └── assets/                # logo, favicon
+    └── assets/                # logo, favicon, banner
 ```
