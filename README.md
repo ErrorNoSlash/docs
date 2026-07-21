@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/banner.svg" alt="docs" width="100%">
+<img src="assets/banner.svg" alt="docs" width="100%">
 
 Live at **[docs.errornoslash.be](https://docs.errornoslash.be)**
 
