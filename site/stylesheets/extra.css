@@ -204,12 +204,15 @@ body[data-md-color-scheme="default"] {
    --color-highlight: var(--md-accent-fg-color), declared *inside* the shadow
    root, so it can't be overridden there — only the value it inherits can be.
    in light mode that's --bright (#040507), which is invisible on the now-dark
-   panel. this reaches the shadow host: the only bare <div> on <body> that
-   isn't one of the theme's data-md-component wrappers. it's a positional
-   selector by necessity — if a future zensical release gives the host a class,
-   switch to that. */
+   panel — the highlighted search terms inside each result read as black.
 
-body[data-md-color-scheme="default"] > div:not([class]):not([data-md-component]) {
+   this reaches the shadow host: every <div> the theme itself puts directly in
+   <body> carries data-md-component (skip, announce, container, dialog), so
+   excluding those leaves only the host. deliberately NOT also :not([class]) —
+   the host gains a class in some builds, and matching on its absence silently
+   breaks the whole rule. */
+
+body[data-md-color-scheme="default"] > div:not([data-md-component]) {
     --md-accent-fg-color: #8fb0ea;
     --md-accent-fg-color--transparent: #8fb0ea1a;
 
