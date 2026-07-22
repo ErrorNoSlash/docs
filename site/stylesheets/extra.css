@@ -8,85 +8,124 @@
 
 /* dark */
 body[data-md-color-scheme="slate"][data-md-color-primary="black"] {
-  /* links */
-  --md-typeset-a-color: #5e8bde;
-  /* hover / focus */
-  --md-accent-fg-color: #8fb0ea;
-  --md-accent-fg-color--transparent: #e3e3e31a;
-  --md-typeset-mark-color: #aeb5b84d;
+    /* links */
+    --md-typeset-a-color: #5e8bde;
+    /* hover / focus */
+    --md-accent-fg-color: #8fb0ea;
+    --md-accent-fg-color--transparent: #e3e3e31a;
+    --md-typeset-mark-color: #aeb5b84d;
 }
 
 /* light — the portfolio's inverted palette, not a white theme:
    --grey #2A2F32 on --black #AEB5B8, bright #040507, border #4A5054 */
 body[data-md-color-scheme="default"][data-md-color-primary="black"] {
-  /* text. --light drives .md-nav__link--passed (ToC entries you've scrolled
-       past). at the theme's 70% it lands on #51575a = 3.53:1, well under the
-       dark scheme's 5.18:1 for the same state, which is why read entries went
-       muddy. 84% gets it to 4.74:1. */
-  --md-default-fg-color: #2a2f32;
-  --md-default-fg-color--light: #414243ab;
-  --md-default-fg-color--lighter: #2a2f3266;
-  --md-default-fg-color--lightest: #2a2f321a;
+    /* text */
+    --md-default-fg-color: #2a2f32;
+    --md-default-fg-color--light: #2a2f32b3;
+    --md-default-fg-color--lighter: #2a2f3266;
+    --md-default-fg-color--lightest: #2a2f321a;
 
-  /* background — header and footer inherit this in the modern variant */
-  --md-default-bg-color: #aeb5b8;
-  --md-default-bg-color--light: #aeb5b8b3;
-  --md-default-bg-color--lighter: #aeb5b84d;
-  --md-default-bg-color--lightest: #aeb5b81f;
+    /* background — header and footer inherit this in the modern variant */
+    --md-default-bg-color: #aeb5b8;
+    --md-default-bg-color--light: #aeb5b8b3;
+    --md-default-bg-color--lighter: #aeb5b84d;
+    --md-default-bg-color--lightest: #aeb5b81f;
 
-  --md-typeset-color: #2a2f32;
+    --md-typeset-color: #2a2f32;
 
-  /* links — same hue family as the dark blue, but more saturated than a
-       navy so it reads as a link and not just dark text. 4.7:1 on #aeb5b8. */
-  --md-typeset-a-color: #123f8f;
-  /* hover / focus — portfolio uses --bright for this */
-  --md-accent-fg-color: #040507;
-  --md-accent-fg-color--transparent: #0405071a;
-  --md-typeset-mark-color: #2a2f3233;
+    /* links — same hue as the dark blue (219deg), darkened to clear 4.5:1
+       against #aeb5b8; the theme's #5e8bde only manages 1.6:1 there.
+       more saturated than a plain navy so it separates from the #2a2f32
+       body text instead of just reading as slightly-off-black. 4.7:1. */
+    --md-typeset-a-color: #123f8f;
+    /* hover / focus — portfolio uses --bright for this */
+    --md-accent-fg-color: #040507;
+    --md-accent-fg-color--transparent: #0405071a;
+    --md-typeset-mark-color: #2a2f3233;
 
-  /* code panel sits *under* the page rather than lighter than it — a panel
-       brighter than #aeb5b8 is what was reading as white */
-  --md-code-fg-color: #2a2f32;
-  --md-code-bg-color: #a2aaad;
-  --md-code-bg-color--light: #a2aaadb3;
-  --md-code-bg-color--lighter: #a2aaad4d;
+    /* code panel, lifted slightly off the page instead of the theme's #f5f5f5 */
+    --md-code-fg-color: #2a2f32;
+    --md-code-bg-color: #bfc5c7;
+    --md-code-bg-color--light: #bfc5c7b3;
+    --md-code-bg-color--lighter: #bfc5c74d;
 
-  /* rules and borders track --border */
-  --md-typeset-table-color: #4a505459;
-  --md-typeset-table-color--light: #4a50542e;
-  --md-typeset-kbd-color: #b9c0c2;
-  --md-typeset-kbd-accent-color: #c6cccd;
-  --md-typeset-kbd-border-color: #4a5054;
+    /* rules and borders track --border */
+    --md-typeset-table-color: #4a505459;
+    --md-typeset-table-color--light: #4a50542e;
+    --md-typeset-kbd-color: #b9c0c2;
+    --md-typeset-kbd-accent-color: #c6cccd;
+    --md-typeset-kbd-border-color: #4a5054;
 }
 
 /* ---------------------------------------------------------------------------
-   inline code in light mode: no chip at all. the theme paints every <code>
-   with --md-code-bg-color, which on a mid-grey page reads as a white box.
-   the mono face is enough to mark it, so drop the fill and the padding —
-   then hand the padding back to fenced blocks, which share the selector.
+   inline code inside a link
+
+   the theme paints every <code> with --md-code-bg-color and pads it into a
+   chip. a chip behind a link fights the underline and reads as a stray box,
+   so strip it and let the link style come through cleanly. the mono face is
+   already enough to mark it as code.
+
+   the :hover/:focus selectors are repeated because the theme's own
+   `.md-typeset a:hover code` rule is (0,2,2) — matching it and landing later
+   in the cascade is what wins.
    --------------------------------------------------------------------------- */
 
-body[data-md-color-scheme="default"] .md-typeset code {
-  background-color: transparent;
-  padding: 0;
+.md-typeset a code,
+.md-typeset a:hover code,
+.md-typeset a:focus code {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    color: inherit;
 }
 
-body[data-md-color-scheme="default"] .md-typeset pre > code {
-  background-color: var(--md-code-bg-color);
-  padding: 0.8203125em 1.25em;
+/* ---------------------------------------------------------------------------
+   inline code outside a link, light mode only
+
+   #bfc5c7 sits *above* the #aeb5b8 page, so the chip reads as a white box on
+   a grey page. drop the fill here too, for consistency with the link case.
+   :not(pre) > code keeps fenced blocks untouched — they still get the panel
+   and their syntax colours, which are tuned for a filled background.
+   --------------------------------------------------------------------------- */
+
+body[data-md-color-scheme="default"] .md-typeset :not(pre) > code {
+    background-color: transparent;
+    padding: 0;
 }
 
-/* links carry an underline in light mode, so colour isn't the only cue —
-   this is also what lets the blue stay legible instead of going near-black */
-body[data-md-color-scheme="default"] .md-typeset a {
-  text-decoration: underline;
-  text-decoration-thickness: 0.05em;
-  text-underline-offset: 0.2em;
+/* ---------------------------------------------------------------------------
+   link styling
+
+   the theme sets `text-decoration: underline` on every .md-typeset a — this
+   turns it off. same specificity as the theme rule (0,1,1), so it only wins
+   by landing later in the cascade; keep this file loaded last in
+   extra_css if you ever add another sheet.
+
+   with the underline gone, colour is the only thing marking a link, so the
+   saturated #123f8f above is doing all the work — don't dial it back toward
+   navy or links stop separating from the #2a2f32 body text.
+   --------------------------------------------------------------------------- */
+
+.md-typeset a {
+    text-decoration: none;
+}
+
+/* hover: bring the underline back as the hover cue, and deepen the colour.
+   --md-accent-fg-color is --bright (#040507), which makes a hovered link look
+   like plain body text. deepen the blue instead — 4.7:1 -> 6.6:1 on #aeb5b8.
+   the accent var itself is left alone for the rest of the theme (search,
+   admonitions, nav) that also reads it. */
+
+.md-typeset a:hover,
+.md-typeset a:focus {
+    text-decoration: underline;
+    text-decoration-thickness: 0.12em;
+    text-underline-offset: 0.18em;
 }
 
 body[data-md-color-scheme="default"] .md-typeset a:hover,
 body[data-md-color-scheme="default"] .md-typeset a:focus {
-  text-decoration-thickness: 0.1em;
+    color: #0a2a63;
 }
 
 /* ---------------------------------------------------------------------------
@@ -97,11 +136,11 @@ body[data-md-color-scheme="default"] .md-typeset a:focus {
    --------------------------------------------------------------------------- */
 
 .md-logo img {
-  transition: filter 0.3s ease;
+    transition: filter 0.3s ease;
 }
 
 body[data-md-color-scheme="default"] .md-logo img {
-  filter: brightness(0);
+    filter: brightness(0);
 }
 
 /* ---------------------------------------------------------------------------
@@ -109,41 +148,123 @@ body[data-md-color-scheme="default"] .md-logo img {
    the theme rule is already (0,3,0), so the scheme attribute + body -> (0,4,1)
    --------------------------------------------------------------------------- */
 
-body[data-md-color-scheme="slate"]
-  .md-nav--primary
-  .md-nav__item
-  .md-nav__link--active {
-  background-color: #aeb5b8;
-  color: #131313;
+body[data-md-color-scheme="slate"] .md-nav--primary .md-nav__item .md-nav__link--active {
+    background-color: #AEB5B8;
+    color: #131313;
 }
 
 /* inverted, same as the portfolio flips --grey and --black */
-body[data-md-color-scheme="default"]
-  .md-nav--primary
-  .md-nav__item
-  .md-nav__link--active {
-  background-color: #2a2f32;
-  color: #aeb5b8;
+body[data-md-color-scheme="default"] .md-nav--primary .md-nav__item .md-nav__link--active {
+    background-color: #2A2F32;
+    color: #AEB5B8;
 }
 
 /* ---------------------------------------------------------------------------
    active item in the right-hand table of contents: text only, uses --bright
    --------------------------------------------------------------------------- */
 
-body[data-md-color-scheme="slate"]
-  .md-nav--secondary
-  .md-nav__item
-  .md-nav__link--active {
-  color: #e3e3e3;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+body[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__item .md-nav__link--active {
+    color: #e3e3e3;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
 }
 
-body[data-md-color-scheme="default"]
-  .md-nav--secondary
-  .md-nav__item
-  .md-nav__link--active {
-  color: #040507;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+body[data-md-color-scheme="default"] .md-nav--secondary .md-nav__item .md-nav__link--active {
+    color: #040507;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+/* ---------------------------------------------------------------------------
+   search dialog: keep it dark in light mode
+
+   the modern variant renders the search panel inside a *shadow root* on a
+   bare <div> appended to <body>. nothing in it can be selected from here —
+   the internal class names are single letters and change every build. the one
+   thing that crosses a shadow boundary is an inherited custom property, and
+   the panel reads its own namespace rather than the --md-* palette, which is
+   why every override further up this file leaves it untouched:
+
+     --color-foreground / --color-background / --color-background-subtle /
+     --color-backdrop      (space-separated rgb triples, not hex)
+
+   `var(--color-` appears nowhere in the theme's main.css, so these four are
+   consumed by the search panel and nothing else — redefining them site-wide
+   in light mode has no other effect. values copied from the slate palette.
+   --------------------------------------------------------------------------- */
+
+body[data-md-color-scheme="default"] {
+    --color-foreground: 255 255 255;
+    --color-background: 22 23 26;
+    --color-background-subtle: 33 34 38;
+    --color-backdrop: 11 12 15;
+}
+
+/* the panel's accent (result hover, search-term <mark>, the badge) resolves to
+   --color-highlight: var(--md-accent-fg-color), declared *inside* the shadow
+   root, so it can't be overridden there — only the value it inherits can be.
+   in light mode that's --bright (#040507), which is invisible on the now-dark
+   panel. this reaches the shadow host: the only bare <div> on <body> that
+   isn't one of the theme's data-md-component wrappers. it's a positional
+   selector by necessity — if a future zensical release gives the host a class,
+   switch to that. */
+
+body[data-md-color-scheme="default"] > div:not([class]):not([data-md-component]) {
+    --md-accent-fg-color: #8fb0ea;
+    --md-accent-fg-color--transparent: #8fb0ea1a;
+
+    /* nearly every text node in the panel sets its own colour from
+       --color-foreground, but anything that doesn't would inherit the light
+       page's #2a2f32 and vanish against the dark panel. */
+    color: hsla(225deg, 15%, 90%, 0.82);
+}
+
+/* ---------------------------------------------------------------------------
+   mobile navigation drawer: keep it dark in light mode
+
+   scoped to the same breakpoint the theme uses to turn .md-sidebar--primary
+   into a drawer, so the desktop sidebar keeps the light palette. the drawer
+   is ordinary DOM, so re-pointing the --md-* vars on the container is enough
+   — everything inside inherits. values are the slate palette's.
+   --------------------------------------------------------------------------- */
+
+@media screen and (max-width: 76.234375em) {
+    body[data-md-color-scheme="default"] .md-sidebar--primary {
+        --md-hue: 225deg;
+        --md-default-fg-color: hsla(var(--md-hue), 15%, 90%, 0.82);
+        --md-default-fg-color--light: hsla(var(--md-hue), 15%, 90%, 0.56);
+        --md-default-fg-color--lighter: hsla(var(--md-hue), 15%, 90%, 0.32);
+        --md-default-fg-color--lightest: hsla(var(--md-hue), 15%, 90%, 0.12);
+        --md-default-bg-color: hsla(var(--md-hue), 15%, 5%, 1);
+        --md-default-bg-color--light: hsla(var(--md-hue), 15%, 5%, 0.54);
+        --md-default-bg-color--lighter: hsla(var(--md-hue), 15%, 5%, 0.26);
+        --md-default-bg-color--lightest: hsla(var(--md-hue), 15%, 5%, 0.07);
+        --md-typeset-color: var(--md-default-fg-color);
+        --md-accent-fg-color: #8fb0ea;
+
+        /* .md-nav__link has no colour rule of its own — it inherits an
+           already-resolved rgb() from <body>, which sits above this element,
+           so re-pointing the vars alone leaves the text dark. inherited
+           colour is a computed value, not a live reference. */
+        color: var(--md-typeset-color);
+    }
+
+    /* the active pill higher up this file inverts for light mode (#2a2f32 on
+       #aeb5b8). inside a dark drawer that's dark-on-dark — use the slate
+       pairing instead. the extra .md-sidebar--primary makes this (0,5,1)
+       against that rule's (0,4,1). */
+    body[data-md-color-scheme="default"]
+        .md-sidebar--primary
+        .md-nav--primary
+        .md-nav__item
+        .md-nav__link--active {
+        background-color: #aeb5b8;
+        color: #131313;
+    }
+
+    /* the logo is a white silhouette flattened to black for the light page.
+       the drawer is dark again, so hand the white back. */
+    body[data-md-color-scheme="default"] .md-sidebar--primary .md-logo img {
+        filter: none;
+    }
 }
