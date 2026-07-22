@@ -139,9 +139,22 @@ text = "Outfit"
 code = "JetBrains Mono"
 
 # sets colors - https://zensical.org/docs/setup/colors/
+# the first entry is the default, so dark stays default for first-time visitors.
+# the choice is remembered in localStorage after that.
+
+# dark mode (default)
 [[project.theme.palette]]
 scheme = "slate"
 primary = "black"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+# light mode
+[[project.theme.palette]]
+scheme = "default"
+primary = "black"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
 
 # miscellaneous settings
 [project.extra]

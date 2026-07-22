@@ -1,26 +1,149 @@
 /* match errornoslash portfolio/blog palette */
 
-/* palette vars: must beat [data-md-color-scheme][data-md-color-primary] (0,2,0),
-   hence the leading body prefix -> (0,2,1) */
+/* ---------------------------------------------------------------------------
+   palette vars
+   must beat [data-md-color-scheme][data-md-color-primary] (0,2,0),
+   hence the leading body prefix -> (0,2,1)
+   --------------------------------------------------------------------------- */
+
+/* dark */
 body[data-md-color-scheme="slate"][data-md-color-primary="black"] {
-    /* links */
-    --md-typeset-a-color: #5e8bde;
-    /* hover / focus */
-    --md-accent-fg-color: #8fb0ea;
-    --md-accent-fg-color--transparent: #e3e3e31a;
-    --md-typeset-mark-color: #aeb5b84d;
+  /* links */
+  --md-typeset-a-color: #5e8bde;
+  /* hover / focus */
+  --md-accent-fg-color: #8fb0ea;
+  --md-accent-fg-color--transparent: #e3e3e31a;
+  --md-typeset-mark-color: #aeb5b84d;
 }
 
-/* active item in the left sidebar: solid pill, dark text.
-   the theme rule is already (0,3,0), so the leading body prefix -> (0,3,1) */
-body .md-nav--primary .md-nav__item .md-nav__link--active {
-    background-color: #AEB5B8;
-    color: #131313;
+/* light — the portfolio's inverted palette, not a white theme:
+   --grey #2A2F32 on --black #AEB5B8, bright #040507, border #4A5054 */
+body[data-md-color-scheme="default"][data-md-color-primary="black"] {
+  /* text. --light drives .md-nav__link--passed (ToC entries you've scrolled
+       past). at the theme's 70% it lands on #51575a = 3.53:1, well under the
+       dark scheme's 5.18:1 for the same state, which is why read entries went
+       muddy. 84% gets it to 4.74:1. */
+  --md-default-fg-color: #2a2f32;
+  --md-default-fg-color--light: #414243ab;
+  --md-default-fg-color--lighter: #2a2f3266;
+  --md-default-fg-color--lightest: #2a2f321a;
+
+  /* background — header and footer inherit this in the modern variant */
+  --md-default-bg-color: #aeb5b8;
+  --md-default-bg-color--light: #aeb5b8b3;
+  --md-default-bg-color--lighter: #aeb5b84d;
+  --md-default-bg-color--lightest: #aeb5b81f;
+
+  --md-typeset-color: #2a2f32;
+
+  /* links — same hue family as the dark blue, but more saturated than a
+       navy so it reads as a link and not just dark text. 4.7:1 on #aeb5b8. */
+  --md-typeset-a-color: #123f8f;
+  /* hover / focus — portfolio uses --bright for this */
+  --md-accent-fg-color: #040507;
+  --md-accent-fg-color--transparent: #0405071a;
+  --md-typeset-mark-color: #2a2f3233;
+
+  /* code panel sits *under* the page rather than lighter than it — a panel
+       brighter than #aeb5b8 is what was reading as white */
+  --md-code-fg-color: #2a2f32;
+  --md-code-bg-color: #a2aaad;
+  --md-code-bg-color--light: #a2aaadb3;
+  --md-code-bg-color--lighter: #a2aaad4d;
+
+  /* rules and borders track --border */
+  --md-typeset-table-color: #4a505459;
+  --md-typeset-table-color--light: #4a50542e;
+  --md-typeset-kbd-color: #b9c0c2;
+  --md-typeset-kbd-accent-color: #c6cccd;
+  --md-typeset-kbd-border-color: #4a5054;
 }
 
-/* active item in the right-hand table of contents: text only */
-body .md-nav--secondary .md-nav__item .md-nav__link--active {
-    color: #e3e3e3;
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
+/* ---------------------------------------------------------------------------
+   inline code in light mode: no chip at all. the theme paints every <code>
+   with --md-code-bg-color, which on a mid-grey page reads as a white box.
+   the mono face is enough to mark it, so drop the fill and the padding —
+   then hand the padding back to fenced blocks, which share the selector.
+   --------------------------------------------------------------------------- */
+
+body[data-md-color-scheme="default"] .md-typeset code {
+  background-color: transparent;
+  padding: 0;
+}
+
+body[data-md-color-scheme="default"] .md-typeset pre > code {
+  background-color: var(--md-code-bg-color);
+  padding: 0.8203125em 1.25em;
+}
+
+/* links carry an underline in light mode, so colour isn't the only cue —
+   this is also what lets the blue stay legible instead of going near-black */
+body[data-md-color-scheme="default"] .md-typeset a {
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.2em;
+}
+
+body[data-md-color-scheme="default"] .md-typeset a:hover,
+body[data-md-color-scheme="default"] .md-typeset a:focus {
+  text-decoration-thickness: 0.1em;
+}
+
+/* ---------------------------------------------------------------------------
+   logo: the source png is a flat white silhouette, so it disappears against
+   the light background. brightness(0) flattens any opaque pixel to black,
+   which is what --bright (#040507) is in the light palette.
+   applies to both the header logo and the mobile drawer logo.
+   --------------------------------------------------------------------------- */
+
+.md-logo img {
+  transition: filter 0.3s ease;
+}
+
+body[data-md-color-scheme="default"] .md-logo img {
+  filter: brightness(0);
+}
+
+/* ---------------------------------------------------------------------------
+   active item in the left sidebar: solid pill
+   the theme rule is already (0,3,0), so the scheme attribute + body -> (0,4,1)
+   --------------------------------------------------------------------------- */
+
+body[data-md-color-scheme="slate"]
+  .md-nav--primary
+  .md-nav__item
+  .md-nav__link--active {
+  background-color: #aeb5b8;
+  color: #131313;
+}
+
+/* inverted, same as the portfolio flips --grey and --black */
+body[data-md-color-scheme="default"]
+  .md-nav--primary
+  .md-nav__item
+  .md-nav__link--active {
+  background-color: #2a2f32;
+  color: #aeb5b8;
+}
+
+/* ---------------------------------------------------------------------------
+   active item in the right-hand table of contents: text only, uses --bright
+   --------------------------------------------------------------------------- */
+
+body[data-md-color-scheme="slate"]
+  .md-nav--secondary
+  .md-nav__item
+  .md-nav__link--active {
+  color: #e3e3e3;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+body[data-md-color-scheme="default"]
+  .md-nav--secondary
+  .md-nav__item
+  .md-nav__link--active {
+  color: #040507;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
