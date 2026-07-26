@@ -38,7 +38,7 @@ extra_javascript = ["javascripts/extra.js"]
 #variant = "classic"
 
 # directory for template overrides - https://zensical.org/docs/customization/#extending-the-theme
-custom_dir = "overrides"
+#custom_dir = "overrides"
 
 # site favicon
 favicon = "assets/favicon.png"
