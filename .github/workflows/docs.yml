@@ -21,6 +21,9 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install zensical
+      # Pages CMS can add an empty front matter block (two --- lines) at the
+      # top of a page, which Zensical rejects. Strip it before building.
+      - run: perl -0pi -e 's/\A---[ \t]*\r?\n---[ \t]*\r?\n//' docs/*.md
       - run: zensical build --clean
       - uses: actions/upload-pages-artifact@v5
         with:

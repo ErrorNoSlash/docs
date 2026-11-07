@@ -7,7 +7,7 @@ content:
     label: Documentation
     type: collection
     path: docs
-    fields:
-      - name: body
-        label: Content
-        type: rich-text
+    # Edit pages as plain Markdown, saved exactly as typed. The rich-text
+    # editor rewrote Zensical syntax (!!! boxes, ++keys++, links) and added
+    # an empty front matter block that broke the build.
+    format: code
