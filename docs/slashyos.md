@@ -2,7 +2,7 @@
 
 A personal, **multi-host** NixOS configuration spanning an AMD desktop and a Framework laptop. It's built with [`flake-parts`](https://flake.parts/) and [`import-tree`](https://github.com/vic/import-tree), so every `.nix` file under `modules/` is auto-imported — no manual wiring, just drop a file in and it's part of the flake.
 
-Both machines run **[niri](https://github.com/YaLTeR/niri)** (a scrollable-tiling Wayland compositor) with the **[Noctalia](https://github.com/noctalia-dev/noctalia-shell)** shell. niri, Noctalia, kitty, btop, git and fastfetch are wrapped declaratively via [`nix-wrapper-modules`](https://github.com/BirdeeHub/nix-wrapper-modules) instead of imperative dotfiles, and everything is themed by **[Stylix](https://github.com/nix-community/stylix)** from a single per-host wallpaper — from the boot splash and login screen to the shell and every app.
+Both machines run **[niri](https://github.com/YaLTeR/niri)** (a scrollable-tiling Wayland compositor) with the **[Noctalia](https://github.com/noctalia-dev/noctalia)** shell. niri, Noctalia, kitty, btop, git, fastfetch and opencode are wrapped declaratively via [`nix-wrapper-modules`](https://github.com/BirdeeHub/nix-wrapper-modules) instead of imperative dotfiles, and everything is themed by **[Stylix](https://github.com/nix-community/stylix)** from a single per-host wallpaper — from the boot splash and login screen to the shell and every app.
 
 Shared configuration is written **once**: a `slashyos` base bundle pulls in everything common (system *and* home-manager level), and each host adds only its hardware, bootloader, and a handful of per-host values. Adding an app to both machines is a one-line change.
 
@@ -16,16 +16,17 @@ SlashyOS/
 ├── flake.nix                     # inputs + flake-parts entrypoint
 ├── .gitlab-ci.yml                # CI: `nix flake check` + formatting on every push
 ├── modules/
+│   ├── default.nix               # the `slashyos` base bundle every host imports
 │   ├── parts.nix                 # systems, `flake.variables` option, nix fmt formatter
 │   ├── checks.nix                # flake checks: deadnix, statix
 │   ├── devshells/
 │   │   └── devshells.nix         # `devShells` outputs (python, frontendServer, docs, zola, cisco)
 │   ├── features/                 # reusable modules, grouped by concern
 │   │   ├── appearance/           # stylix, ly, plymouth
-│   │   ├── desktop/              # niri, noctalia (+ noctalia.json)
-│   │   └── system/               # base bundle, vars, common, common-home, common-hardware,
-│   │                             # lockdown, shell, starship, ssh, nvf, yazi, ntfy, virtualisation
-│   ├── wrappedPrograms/          # 🛠️ kitty, btop, git, fastfetch
+│   │   ├── desktop/              # niri, noctalia (+ noctalia.toml)
+│   │   └── system/               # vars, common, common-home, common-hardware, lockdown,
+│   │                             # shell, starship, ssh, nvf, yazi, ntfy, virtualisation
+│   ├── wrappedPrograms/          # 🛠️ kitty, btop, git, fastfetch, opencode
 │   └── hosts/
 │       ├── pallidus/             # 🖥️ AMD desktop
 │       │   ├── default.nix       # nixosSystem definition
@@ -56,12 +57,12 @@ Anything under `modules/` is auto-imported regardless of subfolder — the folde
 
 Deduplication works in layers:
 
-| Layer               | Module                                     | Contains |
-| ------------------- | ------------------------------------------ | -------- |
-| **Base bundle**     | `slashyos` (`features/system/default.nix`) | Imports everything every machine gets: `vars`, `commonHardware`, `common`, `commonHome`, kitty, btop, git, ssh, niri, ly, stylix, lockdown, shell, starship, fastfetch, plymouth, ntfy, nvf, yazi, virtualisation |
-| **Shared hardware** | `commonHardware`                           | Both machines are AMD: firmware, microcode, amdgpu in initrd, `amd_pstate`, latest kernel, graphics (+32-bit), Bluetooth, Wooting, zram, fstrim, fwupd |
-| **Shared system**   | `common`                                   | NixOS-level config both hosts share: nix settings, locale, keyboard, pipewire, portals, Steam, Thunar, LocalSend, Tailscale, printing, users |
-| **Shared home**     | `commonHome`                               | Home-manager config both hosts share: user dirs, packages, Flatpaks, Zen Browser, VSCodium, Obsidian |
+| Layer               | Module                          | Contains |
+| ------------------- | ------------------------------- | -------- |
+| **Base bundle**     | `slashyos` (`modules/default.nix`) | Imports everything every machine gets, grouped by area: base (`vars`, `commonHardware`, `common`, `commonHome`), appearance (stylix, plymouth, ly), desktop (niri, noctalia), system (shell, starship, ssh, lockdown, ntfy, nvf, yazi, virtualisation) and wrapped programs (kitty, btop, git, fastfetch, opencode) |
+| **Shared hardware** | `commonHardware`                | Both machines are AMD: firmware, microcode, amdgpu in initrd, `amd_pstate`, latest kernel, graphics (+32-bit), Bluetooth, Wooting, zram, fstrim, fwupd |
+| **Shared system**   | `common`                        | NixOS-level config both hosts share: nix settings, locale, keyboard, pipewire, portals, Steam, Thunar, LocalSend, Tailscale, printing, users |
+| **Shared home**     | `commonHome`                    | Home-manager config both hosts share: user dirs, packages, Flatpaks, Zen Browser, VSCodium, Obsidian |
 
 A host file then reads as *"the OS, plus this hardware, plus this bootloader"*, and hands its values to the shared modules with one line:
 
@@ -82,7 +83,7 @@ slashyos.vars = self.variables.theseus;
 
 - App / setting for **both machines** → `common.nix` (system) or `common-home.nix` (user); hardware for both → `common-hardware.nix`
 - App for **one machine** → that host's `home.nix`
-- New feature for both → new file under `features/`, add one line to the `slashyos` bundle
+- New feature for both → new file under `features/`, add one line to the `slashyos` bundle (`modules/default.nix`)
 - New machine → copy the closest host folder — see [Usage](#usage)
 
 ## Tags
@@ -174,10 +175,21 @@ Media, volume and brightness keys work everywhere, including the lock screen.
 
 ### Noctalia
 
-- 🟢🛠️ Shell / bar / launcher / notifications / lock screen for niri, wrapped as a package and toggled via niri keybinds.
-- Settings come from `noctalia.json` (an export from Noctalia's settings window), with a few overrides in `noctalia.nix` so a fresh export can't undo them: colors from Stylix instead of the wallpaper, the avatar from `config/pfp.png`, and the wallpaper picker pointed at the `wallpapers` input.
-- Colors come from Stylix through a "Stylix" color scheme written by `stylix.nix`: `base00` for the background, a 25% mix of `base00` and `base01` for boxes and cards, `base0D` as the accent. They're re-applied on every rebuild and boot.
-- Idle handling: screen off after 10 minutes, lock after 11, suspend after 30; locks on suspend.
+- 🟢🛠️ **[Noctalia v5](https://github.com/noctalia-dev/noctalia)** (the C++ rewrite) as shell / bar / launcher / dock / notifications / OSD / lock screen for niri, wrapped as a package and driven by niri keybinds through `noctalia msg …`.
+- Settings come from `noctalia.toml` (an export from Noctalia's settings window), with a few overrides in `noctalia.nix` so a fresh export can't undo them: colors from Stylix instead of the wallpaper, the avatar from `config/pfp.png`, the NixOS logo on the launcher, and the wallpaper picker pointed at the `wallpapers` input.
+- Each host gets its own copy carrying its Stylix palette (`base00` for the background, a 25% mix of `base00` and `base01` for boxes and cards, `base0D` as the accent) and its wallpaper as the starting one.
+- Bar on the left at 70% opacity, its inner corners curving out into the screen edge. Top to bottom: launcher, media (only while playing), workspaces (empty ones hidden), active window, tray, privacy indicators (only while in use), stacked time and date, notifications, volume, battery with percentage, control center.
+- Auto-hiding dock, blurred wallpaper behind niri's overview, weather for Aarschot, and typing in the overview searches apps. The session menu and wallpaper picker open centered.
+- Idle handling: screen off after 10 minutes, lock after 11, lock and suspend after 30.
+
+!!! tip "Keeping changes from the settings window"
+    Changes made in Noctalia's settings window are saved to `~/.local/state/noctalia/settings.toml` and win over the repo. To move them into the repo:
+
+    ```fish
+    noctalia config export > ~/SlashyOS/modules/features/desktop/noctalia.toml
+    rm ~/.local/state/noctalia/settings.toml
+    fr
+    ```
 
 ### Theming (Stylix)
 
@@ -220,6 +232,7 @@ Media, volume and brightness keys work everywhere, including the lock screen.
 - **zoxide** — replaces `cd` with a smarter version that remembers directories. **fzf** — fuzzy search keybindings and completion.
 - 🛠️ **fastfetch** — custom system-info fetch with an ASCII ringed-planet logo, `SlashyOS 1.0` as the OS, and the install's age in days.
 - 🛠️ **git** — wrapped with name, email and defaults.
+- 🛠️ **[opencode](https://opencode.ai)** — terminal AI coding agent, wrapped with a Stylix theme and `nixd` + `nixfmt` on its PATH; self-updates and share links are off, and shell commands ask first (read-only ones run freely, `sudo` is blocked). Log in to a provider with `/connect`; keys stay in `~/.local/share/opencode/`.
 - **nvf** — declaratively configured Neovim (LSP, Telescope, Treesitter; Nix and Python). **yazi** — terminal file manager. **micro** — default `$EDITOR`.
 - **ntfy** — a user service subscribes to the `priority-ntfy` topic on the [ntfy](https://ntfy.sh) server and relays messages to desktop notifications with a sound. The client config is generated by Nix; the access token never touches the repo — [secretspec](https://secretspec.dev) reads it from the GNOME keyring and passes it in as `$NTFY_TOKEN`.
 
@@ -268,7 +281,7 @@ Garbage collection is automated **without ever nuking dev shells**:
 **Checks & CI**
 
 - `nix flake check` evaluates both hosts (nothing is built) and runs the deadnix and statix checks from `checks.nix`. Run it before pushing to catch a broken config for the machine you're not on.
-- `.gitlab-ci.yml` runs the same `nix flake check`, plus a formatting check (`nix fmt` must leave no diff), on every push that touches Nix code.
+- `.gitlab-ci.yml` runs the same `nix flake check`, plus a formatting check (`nix fmt` must leave no diff), on every push that touches Nix code, JSON, TOML or `flake.lock`.
 
 ## Applications
 
@@ -359,7 +372,7 @@ nixos-rebuild build --flake .#theseus     # drops ./result, changes nothing
 | [nixpkgs](https://github.com/nixos/nixpkgs) (`nixos-26.05`) | Package set |
 | [flake-parts](https://github.com/hercules-ci/flake-parts) | Modular flake composition |
 | [import-tree](https://github.com/vic/import-tree) | Auto-import of `modules/` |
-| [nix-wrapper-modules](https://github.com/BirdeeHub/nix-wrapper-modules) | Declarative wrapping of niri, Noctalia, kitty, btop, git and fastfetch |
+| [nix-wrapper-modules](https://github.com/BirdeeHub/nix-wrapper-modules) | Declarative wrapping of niri, Noctalia, kitty, btop, git, fastfetch and opencode |
 | [nixos-hardware](https://github.com/NixOS/nixos-hardware) | Framework laptop tuning (`theseus`) |
 | [lanzaboote](https://github.com/nix-community/lanzaboote) | Secure Boot (`pallidus`) |
 | [stylix](https://github.com/nix-community/stylix) (`release-26.05`) | System-wide theming |
