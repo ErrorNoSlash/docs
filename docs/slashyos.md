@@ -29,7 +29,7 @@ SlashyOS/
 │   └── hosts/
 │       ├── pallidus/             # 🖥️ AMD desktop
 │       │   ├── default.nix       # nixosSystem definition
-│       │   ├── pallidus.nix      # host config: imports + `slashyos.vars` + bootloader
+│       │   ├── pallidus.nix      # host config: imports + `slashyos.vars` + stateVersion + bootloader
 │       │   ├── hardware.nix      # generated hardware scan
 │       │   ├── desktop-hardware.nix  # desktop-only hardware (LACT, NTFS)
 │       │   ├── lanzaboote.nix    # 🔐 Secure Boot
@@ -138,7 +138,7 @@ So a single `stylix.nix` themes both hosts, each with its own wallpaper. Because
 
 ### niri
 
-- 🟢🛠️ Scrollable-tiling Wayland compositor, wrapped declaratively (`programs.niri` + `wrapper-modules`). The base config is a flake package; each host layers its Stylix colors, cursor and keyboard layout on top.
+- 🟢🛠️ Scrollable-tiling Wayland compositor, wrapped declaratively (`programs.niri` + `wrapper-modules`). The base config is a flake package; each host layers its Stylix colors, cursor and keyboard settings on top. The keyboard layout and ++alt+shift++ toggle are defined once, in `services.xserver.xkb` (`common.nix`), and niri reads them from there.
 - Rounded window corners (12px), background blur, 8px gaps, focus ring in Stylix colors.
 - `phinger-cursors-dark` cursor, size 32. Flat mouse acceleration.
 - Keyboard layout is per-host, ++alt+shift++ to toggle. Workspace keys work on both QWERTY and AZERTY.
@@ -193,7 +193,7 @@ Media, volume and brightness keys work everywhere, including the lock screen.
 - 🟢 **Plymouth** — Stylix-themed boot splash with silent boot: quiet kernel params, hidden initrd logs.
 - 🟢 **Ly** — TUI login manager with the `colormix` animation in Stylix colors and a big clock. Logging in unlocks GNOME Keyring; fingerprint login is disabled so the keyring always gets your password.
 - 🟢🔐 **SSH** — GNOME Keyring is the SSH agent, so keys unlock at login. Hosts that shouldn't be public live in `~/.ssh/config.d/` on each machine, outside the repo.
-- 🟢🔐 **Lockdown mode** — `lockdown` (or ++super+alt+l++) for when you step away somewhere you don't trust. While on, it locks the screen now and after 1 minute idle, blocks newly plugged-in USB devices ([USBGuard](https://usbguard.github.io/); built-in devices keep working), turns off Wi-Fi and Bluetooth, mutes the mic, clears the clipboard and forgets the cached `sudo` password. Turning it off restores Wi-Fi, Bluetooth and the mic to how they were, and tells you about any USB device that was blocked (replug it to use it).
+- 🟢🔐 **Lockdown mode** — `lockdown` (or ++super+alt+l++) for when you step away somewhere you don't trust. While on, it locks the screen now and after 1 minute idle, blocks USB devices plugged in after it started ([USBGuard](https://usbguard.github.io/); built-in devices and whatever was already plugged in keep working, even if they reconnect after suspend), turns off Wi-Fi and Bluetooth, mutes the mic, clears the clipboard and forgets the cached `sudo` password. Turning it off restores Wi-Fi, Bluetooth and the mic to how they were, and tells you about any USB device that was blocked (replug it to use it).
 
     | Command               | Does |
     | --------------------- | ---- |
@@ -218,7 +218,6 @@ Media, volume and brightness keys work everywhere, including the lock screen.
 - **[nh](https://github.com/nix-community/nh)** — pretty `nixos-rebuild` wrapper, pointed at the repo, with weekly auto-clean (see [Maintenance](#maintenance)).
 - **direnv + nix-direnv** — per-project [dev shells](#dev-shells) that auto-activate on `cd`.
 - **zoxide** — replaces `cd` with a smarter version that remembers directories. **fzf** — fuzzy search keybindings and completion.
-- **[comma](https://github.com/nix-community/comma)** — `, anything` runs a nixpkgs program without installing it.
 - 🛠️ **fastfetch** — custom system-info fetch with an ASCII ringed-planet logo, `SlashyOS 1.0` as the OS, and the install's age in days.
 - 🛠️ **git** — wrapped with name, email and defaults.
 - **nvf** — declaratively configured Neovim (LSP, Telescope, Treesitter; Nix and Python). **yazi** — terminal file manager. **micro** — default `$EDITOR`.
@@ -263,7 +262,7 @@ Garbage collection is automated **without ever nuking dev shells**:
 - `nh clean` runs **weekly**: keeps the last 5 generations and anything newer than 3 days, and runs with `--no-gcroots` so direnv's dev-shell roots are never removed.
 - `gc` cleans by hand, down to the last 2 generations.
 - `nix.settings` sets `keep-outputs` + `keep-derivations`, so build-time dependencies of rooted shells survive GC — nothing gets re-downloaded after a clean.
-- `auto-optimise-store` hardlinks duplicate store files to claw disk back.
+- `nix.optimise` hardlinks duplicate store files daily to claw disk back, without slowing down builds.
 - `lint` / `lintfix` find and remove dead code ([deadnix](https://github.com/astro/deadnix)) and anti-patterns ([statix](https://github.com/oppiliappan/statix)).
 
 **Checks & CI**
@@ -298,11 +297,12 @@ Shared apps live in `commonHome` and `common`; host-only extras in that host's `
 | [virt-manager](https://virt-manager.org/) | Virtual machines (libvirt + QEMU/KVM, TPM, USB redirection) |
 | Steam | Gamescope session, Proton-GE, GameMode |
 | [Beyond All Reason](https://www.beyondallreason.info/) | RTS game |
+| Pandora Launcher | Minecraft launcher |
 
 **Host extras**
 
-- **pallidus** 🖥️ — `r2modman`, Pandora Launcher.
-- **theseus** 💻 — Pandora Launcher, Cisco Packet Tracer 9, ONLYOFFICE, Wireshark (the `wireshark` group lets you capture without `sudo`; `dialout` gives access to USB-to-serial adapters).
+- **pallidus** 🖥️ — `r2modman`.
+- **theseus** 💻 — Cisco Packet Tracer 9, ONLYOFFICE, Wireshark (the `wireshark` group lets you capture without `sudo`; `dialout` gives access to USB-to-serial adapters).
 
 Flatpaks are managed declaratively with [nix-flatpak](https://github.com/gmodena/nix-flatpak): unmanaged ones are removed, and the rest update on rebuild and weekly.
 
@@ -350,7 +350,7 @@ nixos-rebuild build --flake .#theseus     # drops ./result, changes nothing
     - `/var/lib/sbctl` — Secure Boot keys (`pallidus`, created with `sbctl`).
 
 !!! tip "Adding a new host"
-    To add a machine (e.g. `orion`): copy the closest existing host folder (`pallidus` for a desktop, `theseus` for a laptop), rename its per-host module attributes (`<old>Configuration/Home/Hardware` → `<new>…`), set `flake.variables.<new>` and `slashyos.vars = self.variables.<new>;` in the host file, drop in the machine's real `hardware.nix`, `git add` the new files, then `sudo nixos-rebuild switch --flake .#<new>` on that machine. Thanks to the `slashyos` bundle, the new host file is ~20 lines. The bundle includes `commonHardware`, which assumes an AMD machine — for anything else, move that import into the AMD hosts.
+    To add a machine (e.g. `orion`): copy the closest existing host folder (`pallidus` for a desktop, `theseus` for a laptop), rename its per-host module attributes (`<old>Configuration/Home/Hardware` → `<new>…`), set `flake.variables.<new>` and `slashyos.vars = self.variables.<new>;` in the host file, set its `system.stateVersion` and `home.stateVersion` to the NixOS release you installed it with (never bump them later), drop in the machine's real `hardware.nix`, `git add` the new files, then `sudo nixos-rebuild switch --flake .#<new>` on that machine. Thanks to the `slashyos` bundle, the new host file is ~20 lines. The bundle includes `commonHardware`, which assumes an AMD machine — for anything else, move that import into the AMD hosts.
 
 ## Inputs & credits
 
